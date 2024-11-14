@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/css/index.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section class="one">
+            <nav class="menu-mobile">
+                <div class="burger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+    
+            <nav class="menu">
+                <ul>
+                    <li>Home</li>
+                    <li>Properties</li>
+                    <li>Agents</li>
+                    <li>Service</li>
+                    <li>About Us</li>
+                    <li>Contact</li>
+                    
+                </ul>
+            </nav>
+            
+            <h1>Elite home</h1>
+
+            <button>Get Started</button>
+        
+        </section>
+
+        <section class="two">
+            <div class="two-texte">
+                <p>Find your perfect</p>
+                <p>Home</p>
+            </div>
+            
+            <div>
+                <img src="asset/img/maison-un.png" alt="Image of a beautiful house">
+            </div>
+        
+            <div class="two-texte2">
+                <p>Discover properties that match your lifestyle</p><p>and budget with our experts service</p>
+            </div>
+
+            <div>
+                <button><p>export listings</p></button>
+            </div>
+            
+        </section>
+        
+    </header>
+
+    <main>
+        <section class="choix">
+            <select name="bkjb" id="">
+                <option value="">rgfre</option>
+                <option value=""></option>
+            </select>
+            <select name="hhj" id="">
+                <option value="">dgthtr</option>
+                <option value=""></option>
+            </select>
+            <select name="hgikj" id="">
+                <option value="">gff</option>
+                <option value=""></option>
+            </select>
+
+
+        </section>
+    </main>
+    
+
+
+
+
+
+    <script>
+        setInterval(() => {
+            window.location.reload();
+        }, 45000);
+    </script>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
+</html>
