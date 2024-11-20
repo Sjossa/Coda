@@ -66,4 +66,16 @@ echo "<br> - Les fonction - <br>";
 
 
 
+function email($mail) {
+    $caractere = '@';
+
+    if (strpos($mail, $caractere) !== false) {
+        echo "Le caractère '$caractere' a été trouvé.";
+    } else {
+        echo "Le caractère n'a pas été trouvé.";
+    }
+}
+$mail = 'johnnysfgrgergtreg@gmail.com';
+ echo email($mail);
+
 ?>
