@@ -1,98 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/css/index.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="asset/css/index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <section class="one">
-            <nav class="menu-mobile">
-                <div class="burger" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-    
-            <nav class="menu">
-                <ul>
-                    <li>Home</li>
-                    <li>Properties</li>
-                    <li>Agents</li>
-                    <li>Service</li>
-                    <li>About Us</li>
-                    <li>Contact</li>
-                    
-                </ul>
-            </nav>
-            
-            <h1>Elite home</h1>
+      <section class="one">
+        <nav class="menu-mobile">
+          <div class="burger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
 
-            <button>Get Started</button>
-        
-        </section>
+        <nav class="menu">
+          <ul>
+            <li>Home</li>
+            <li>Properties</li>
+            <li>Agents</li>
+            <li>Service</li>
+            <li>About Us</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
 
-        <section class="two">
-            <div class="two-texte">
-                <p>Find your perfect</p>
-                <p>Home</p>
-            </div>
-            
-            <div>
-                <img src="asset/img/maison-un.png" alt="Image of a beautiful house">
-            </div>
-        
-            <div class="two-texte2">
-                <p>Discover properties that match your lifestyle</p><p>and budget with our experts service</p>
-            </div>
+        <h1>Elite home</h1>
 
-            <div>
-                <button><p>export listings</p></button>
-            </div>
-            
-        </section>
-        
+        <button>Get Started</button>
+      </section>
+
+      <section class="two">
+        <div class="two-texte">
+          <p>Find your perfect</p>
+          <p>Home</p>
+        </div>
+
+        <div>
+          <img src="asset/img/maison-un.png" alt="Image of a beautiful house" />
+        </div>
+
+        <div class="two-texte2">
+          <p>Discover properties that match your lifestyle</p>
+          <p>and budget with our experts service</p>
+        </div>
+
+        <div>
+          <button><p>export listings</p></button>
+        </div>
+      </section>
     </header>
 
     <main>
-        <section class="choix">
-            <select name="bkjb" id="">
-                <option value="">rgfre</option>
-                <option value=""></option>
-            </select>
-            <select name="hhj" id="">
-                <option value="">dgthtr</option>
-                <option value=""></option>
-            </select>
-            <select name="hgikj" id="">
-                <option value="">gff</option>
-                <option value=""></option>
-            </select>
+      <section class="section-carousel">
+        <div>
+          <h1>OUR TOP LISTING</h1>
+          <p>Discover the best properties in luxury,</p>
+          <p>comfort, and convenience.</p>
+        </div>
 
 
-        </section>
+        <div class="slide">
+
+          <article class="item">
+            <img src="asset/img/villa_1.jpg" alt="House 1" />
+            <div class="info">
+              <h4>$950.000</h4>
+              <h2>SKYLINE HEIGHTS</h2>
+              <p>
+                Experience urban living at its finest with breathtaking views
+                and modern amenities.
+              </p>
+            </div>
+            <div class="louer">
+              <div class="content">
+                <div class="text-image">
+                  <img src="asset/img/lit.png" alt="Image 1" class="image" />
+                  <p>3 bedrooms</p>
+                </div>
+                <div class="text-image">
+                  <img src="asset/img/douche.png" alt="Image 2" class="image" />
+                  <p>2 bathrooms</p>
+                </div>
+              </div>
+              <button class="right">Cliquez ici</button>
+            </div>
+          </article>
+
+
+          <article class="item">
+            <img src="asset/img/villa_2.jpg" alt="House 2" />
+            <div class="info">
+              <h4>$1.200.000</h4>
+              <h2>OCEAN VIEW ESTATES</h2>
+              <p>
+                Live where the ocean meets luxury in this stunning estate with
+                panoramic views.
+              </p>
+            </div>
+            <div class="louer">
+              <div class="content">
+                <div class="text-image">
+                  <img src="asset/img/lit.png" alt="Image 1" class="image" />
+                  <p>4 bedrooms</p>
+                </div>
+                <div class="text-image">
+                  <img src="asset/img/douche.png" alt="Image 2" class="image" />
+                  <p>3 bathrooms</p>
+                </div>
+              </div>
+              <button class="right">Cliquez ici</button>
+            </div>
+          </article>
+
+
+          <article class="item">
+            <img src="asset/img/villa_3.jpg" alt="House 3" />
+            <div class="info">
+              <h4>$875.000</h4>
+              <h2>MODERN LUXURY VILLA</h2>
+              <p>
+                This modern villa offers a perfect blend of sophistication and
+                comfort.
+              </p>
+            </div>
+            <div class="louer">
+              <div class="content">
+                <div class="text-image">
+                  <img src="asset/img/lit.png" alt="Image 1" class="image" />
+                  <p>5 bedrooms</p>
+                </div>
+                <div class="text-image">
+                  <img src="asset/img/douche.png" alt="Image 2" class="image" />
+                  <p>4 bathrooms</p>
+                </div>
+              </div>
+              <button class="right">Cliquez ici</button>
+            </div>
+          </article>
+
+
+          <article class="item">
+            <img src="asset/img/villa_4.jpg" alt="House 4" />
+            <div class="info">
+              <h4>$1.500.000</h4>
+              <h2>HEAVENLY RETREAT</h2>
+              <p>
+                A luxurious retreat offering serenity and privacy with stunning
+                mountain views.
+              </p>
+            </div>
+            <div class="louer">
+              <div class="content">
+                <div class="text-image">
+                  <img src="asset/img/lit.png" alt="Image 1" class="image" />
+                  <p>6 bedrooms</p>
+                </div>
+                <div class="text-image">
+                  <img src="asset/img/douche.png" alt="Image 2" class="image" />
+                  <p>5 bathrooms</p>
+                </div>
+              </div>
+              <button class="right">Cliquez ici</button>
+            </div>
+          </article>
+
+
+          <article class="item">
+            <img src="asset/img/villa_5.jpg" alt="House 5" />
+            <div class="info">
+              <h4>$2.000.000</h4>
+              <h2>GRAND MANSION</h2>
+              <p>
+                This grand mansion boasts luxurious living spaces and
+                state-of-the-art facilities.
+              </p>
+            </div>
+            <div class="louer">
+              <div class="content">
+                <div class="text-image">
+                  <img src="asset/img/lit.png" alt="Image 1" class="image" />
+                  <p>7 bedrooms</p>
+                </div>
+                <div class="text-image">
+                  <img src="asset/img/douche.png" alt="Image 2" class="image" />
+                  <p>6 bathrooms</p>
+                </div>
+              </div>
+              <button class="right">Cliquez ici</button>
+            </div>
+          </article>
+
+
+          <article class="item">
+            <img src="asset/img/villa_6.jpg" alt="House 6" />
+            <div class="info">
+              <h4>$1.750.000</h4>
+              <h2>THE PALACE</h2>
+              <p>
+                Enjoy royal living with exclusive amenities in a one-of-a-kind
+                palace residence.
+              </p>
+            </div>
+            <div class="louer">
+              <div class="content">
+                <div class="text-image">
+                  <img src="asset/img/lit.png" alt="Image 1" class="image" />
+                  <p>8 bedrooms</p>
+                </div>
+                <div class="text-image">
+                  <img src="asset/img/douche.png" alt="Image 2" class="image" />
+                  <p>7 bathrooms</p>
+                </div>
+              </div>
+              <button class="right">Cliquez ici</button>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-button">
+          <button id="prevButton">
+            <img src="asset/img/gauche.png" alt="" />
+          </button>
+          <button id="nextButton">
+            <img src="asset/img/droite.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <section class="video-container">
+        <video id="myVideo" class="video" controls>
+          <source src="asset/video/video.mp4" type="video/mp4" />
+          <source src="asset/video/video.webm" type="video/webm" />
+          <p>
+            Votre navigateur ne supporte pas la vidéo. Téléchargez-la
+            <a href="asset/video/video.mp4">ici</a>.
+          </p>
+        </video>
+        <button id="playButton" class="play-button">
+          <img src="asset/img/droite.png" alt="" />
+        </button>
+      </section>
+
+      <section class="service">
+        <div>
+          <h1>Our Service</h1>
+          <p>Comprehensive Real Estate Solution for every need</p>
+        </div>
+
+        <div class="services">
+          <article class="click">
+            <img src="asset/img/file.png" alt="" />
+            <div>
+              <h1>Buying Assistance</h1>
+              <p class="hidden-text">
+                Our team of experts is dedicated to helping you navigate the
+                home buying process with ease. From understanding your needs to
+                closing the deal, we provide personalized support every step of
+                the way.
+              </p>
+            </div>
+          </article>
+
+          <article class="click">
+            <img src="asset/img/file.png" alt="" />
+            <div>
+              <h1>Selling Service</h1>
+              <p class="hidden-text">
+                Whether you're selling your home for the first time or looking
+                to upgrade, our team provides expert guidance to ensure a smooth
+                and successful sale, from pricing your property to negotiating
+                offers.
+              </p>
+            </div>
+          </article>
+
+          <article class="click">
+            <img src="asset/img/file.png" alt="" />
+            <div>
+              <h1>Property Management</h1>
+              <p class="hidden-text">
+                Our property management services help you maintain and enhance
+                the value of your real estate. We offer comprehensive solutions,
+                including tenant management, maintenance, and rent collection.
+              </p>
+            </div>
+          </article>
+
+          <article class="click">
+            <img src="asset/img/file.png" alt="" />
+            <div>
+              <h1>Leasing Services</h1>
+              <p class="hidden-text">
+                We provide professional leasing services to both tenants and
+                property owners. Whether you're looking to lease a property or
+                find tenants for your rental, we make the process efficient and
+                hassle-free.
+              </p>
+            </div>
+          </article>
+
+          <article class="click">
+            <img src="asset/img/file.png" alt="" />
+            <div>
+              <h1>Real Estate Consulting</h1>
+              <p class="hidden-text">
+                Our real estate consulting services offer expert advice and
+                insights to help you make informed decisions. Whether you're
+                buying, selling, or investing, we provide tailored strategies to
+                meet your goals.
+              </p>
+            </div>
+          </article>
+
+          <article class="click">
+            <img src="asset/img/file.png" alt="" />
+            <div>
+              <h1>Market Analysis</h1>
+              <p class="hidden-text">
+                Stay ahead of the market with our in-depth analysis. We provide
+                valuable insights into current trends, property values, and
+                market forecasts to help you make strategic real estate
+                decisions.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="reviews">
+        <h1>Clients Reviews</h1>
+        <p>See what happy clients have to say about Elite Homes</p>
+
+        <div class="reviews-carousel">
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/a.jpg" alt="fille" />
+                    <div class="etoile">
+                      <h1>Sarah Johnson</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia, tempore deserunt in cum minima!"</p>
+                  </div>
+                </article>
+
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/b.jpg" alt="homme" />
+                    <div class="etoile">
+                      <h1>John Doe</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Un excellent produit, je suis ravi de l'avoir essayé. Je le recommande à tous."</p>
+                  </div>
+                </article>
+
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/c.jpg" alt="femme" />
+                    <div class="etoile">
+                      <h1>Emma Watson</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Service impeccable ! J'ai vraiment apprécié l'expérience et je n'hésiterai pas à revenir."</p>
+                  </div>
+                </article>
+
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/d.jpg" alt="homme" />
+                    <div class="etoile">
+                      <h1>Mark Spencer</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Un service rapide et professionnel. Les résultats dépassent mes attentes."</p>
+                  </div>
+                </article>
+
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/e.jpg" alt="femme" />
+                    <div class="etoile">
+                      <h1>Lily Collins</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Je suis très satisfaite de mon achat. L'équipe a été d'une grande aide."</p>
+                  </div>
+                </article>
+
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/f.jpg" alt="homme" />
+                    <div class="etoile">
+                      <h1>James Brown</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Un produit d'excellente qualité avec un service client réactif."</p>
+                  </div>
+                </article>
+
+
+                <article>
+                  <div class="avis">
+                    <img src="asset/img/a.jpg" alt="femme" />
+                    <div class="etoile">
+                      <h1>Olivia Taylor</h1>
+                      <img src="asset/img/etoile.png" />
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>"Une expérience très positive. L'équipe est professionnelle et à l'écoute."</p>
+                  </div>
+                </article>
+
+      </section>
+      <div class="carousel-button2">
+        <button id="prevButtonReviews">
+          <img src="asset/img/gauche.png" alt="" />
+        </button>
+        <button id="nextButtonReviews">
+          <img src="asset/img/droite.png" alt="" />
+        </button>
+      </div>
+  <div class="contact">
+    <div class="form-header">
+      <h2>Contact Elite Homes</h2>
+      <p>We're here to help with any real estate needs</p>
+    </div>
+    <div class="form-image">
+      <img src="asset/img/build.png" alt="Modern Building">
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="First Name" name="first-name" required>
+      <input type="text" placeholder="Last Name" name="last-name" required>
+      <input type="email" placeholder="Email" name="email" required>
+      <textarea placeholder="Message" name="message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+
+
+
     </main>
-    
 
-
-
-
+    <footer>
+      <div class="footer-container">
+        <div class="brand">
+          <h3>Elite Homes</h3>
+          <p>At Elite Homes, we are committed to finding you the perfect property. With years of experience in the real estate market, our team of experts provides personalized services to help you buy, sell, or rent your ideal home.</p>
+        </div>
+        <div class="social-media">
+          <h4>Follow Us</h4>
+          <div class="icons">
+            <a href="#"><img src="asset/img/x.png" alt="X"></a>
+            <a href="#"><img src="asset/img/i.png" alt="Instagram"></a>
+            <a href="#"><img src="asset/img/f.png"Facebook"></a>
+            <a href="#"><img src="asset/img/y.png" alt="YouTube"></a>
+          </div>
+        </div>
+        <div class="quick-links">
+          <h4>Quick Link</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Properties</a></li>
+            <li><a href="#">Agents</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="contact-info">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="tel:1234567890">📞 (123) 456-7890</a></li>
+            <li><a href="mailto:info@elitehomes.com">📧 info@elitehomes.com</a></li>
+            <li>📍 123 Main Street, City, State</li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Elite Homes. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
     <script>
-        setInterval(() => {
-            window.location.reload();
-        }, 45000);
+      // Script pour activer/désactiver le menu
+      function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      }
+
+      // Script pour afficher/masquer le bouton "Play" de la vidéo
+      const playButton = document.getElementById("playButton");
+      const video = document.getElementById("myVideo");
+
+      video.addEventListener("pause", function () {
+        playButton.style.display = "block";
+      });
+
+      video.addEventListener("play", function () {
+        playButton.style.display = "none";
+      });
+
+      playButton.addEventListener("click", function () {
+        video.play();
+      });
+
+      // Script pour gérer le clic et l'affichage du texte caché
+      document.querySelectorAll(".click").forEach(function (item) {
+        item.addEventListener("click", function () {
+          document.querySelectorAll(".click").forEach(function (el) {
+            el.style.backgroundColor = "";
+            const title = el.querySelector("h1");
+            if (title) {
+              title.style.color = "";
+            }
+          });
+
+          this.style.backgroundColor = "#6a73c1";
+          const title = this.querySelector("h1");
+          if (title) {
+            title.style.color = "white";
+          }
+
+          document
+            .querySelectorAll(".hidden-text.visible")
+            .forEach(function (visibleText) {
+              visibleText.classList.remove("visible");
+            });
+
+          const text = this.querySelector(".hidden-text");
+          if (text) {
+            text.classList.toggle("visible");
+          }
+        });
+      });
     </script>
 
-<script>
-    function toggleMenu() {
-        const menu = document.querySelector('.menu');
-        menu.classList.toggle('active');
-    }
-</script>
-</body>
+    <script>
+      // Script pour initialiser le slider
+      $(document).ready(function () {
+        var slider = $(".slide").bxSlider({
+          mode: "vertical",
+          slideWidth: 500,
+          startSlide: 0,
+          infiniteLoop: false,
+          slideMargin: 10,
+          minSlides: 3,
+          controls: false,
+          pager: false,
+        });
+
+        $("#prevButton").click(function () {
+          slider.goToPrevSlide();
+        });
+
+        $("#nextButton").click(function () {
+          slider.goToNextSlide();
+        });
+      });
+
+      var reviewsSlider = $(".reviews-carousel").bxSlider({
+        mode: "vertical",
+        mode: "vertical",
+          slideWidth: 500,
+          startSlide: 0,
+          infiniteLoop: false,
+          slideMargin: 10,
+          minSlides: 3,
+          controls: false,
+          pager: false,
+      });
+
+      $("#prevButtonReviews").click(function () {
+        reviewsSlider.goToPrevSlide();
+      });
+
+      $("#nextButtonReviews").click(function () {
+        reviewsSlider.goToNextSlide();
+      });
+    </script>
+  </body>
 </html>

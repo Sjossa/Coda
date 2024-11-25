@@ -16,17 +16,17 @@ $months = [
 ];
 
 
-    // var_dump($months);
-    // echo  $months[0];
+// var_dump($months);
+// echo  $months[0];
 
 echo " nombre de jour : {$months['septembre']['jours']} saison: {$months['septembre']['saison']}";
 
 foreach ($months as $key => $value) {
-echo "mois:  $key nbres de jours:  {$value["jours"]} saison{$value['saison']} <br>";}
+    echo "mois:  $key nbres de jours:  {$value["jours"]} saison{$value['saison']} <br>";
+}
 
 for ($i = 1; $i < 11; $i++) {
     $res = $i * 2;
     echo "$i X 2 = {$res} <br>";
 }
 ?>
-

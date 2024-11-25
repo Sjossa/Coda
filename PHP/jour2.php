@@ -66,7 +66,8 @@ echo "<br> - Les fonction - <br>";
 
 
 
-function email($mail) {
+function email($mail)
+{
     $caractere = '@';
 
     if (strpos($mail, $caractere) !== false) {
@@ -76,6 +77,6 @@ function email($mail) {
     }
 }
 $mail = 'johnnysfgrgergtreg@gmail.com';
- echo email($mail);
+echo email($mail);
 
 ?>
