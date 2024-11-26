@@ -1,9 +1,6 @@
 <?php
-
+require "jour3_functions.php";
 if (isset($_POST['valid'])) {
-    // if ( isset( $_POST['username'] ) ) {
-    //     $username = $_POST['username'];
-    // }
 
     $username = !empty($_POST['username']) ? $_POST['username'] : null;
     $pass = !empty($_POST['pass']) ? $_POST['pass'] : null;
@@ -13,11 +10,30 @@ if (isset($_POST['valid'])) {
         $pass !== null &&
         filter_var($username, FILTER_VALIDATE_EMAIL)
     ) {
+        $username = cleanString($username);
+        $pass = cleanString($pass);
+        try {
+            $pdo = new PDO('mysql:host=localhost;dbname=coda_school', username: 'root');
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+        }
+
+        $query = 'SELECT username, password FROM users WHERE email = :email';
+        $res = $pdo->prepare($query);
+        $res->bindParam(':email', $username);
+        $res->execute();
+
+        $user = $res->fetch();
+
+        if(is_array($user)){
+            $isMatchPassword = password_verify($pass, $user['password']);
+            var_dump( $isMatchPassword);
+        }
 
 
     }
-}
 
+}
 ?>
 
 <!DOCTYPE html>
