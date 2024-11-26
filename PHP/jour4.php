@@ -36,16 +36,17 @@ require "jour3_functions.php";
 
 
             try {
-                $state = $pdo->prepare("SELECT COUNT(*) AS usernb FROM `users` WHERE `email` = :mail");
-                $state->bindParam(':mail', $email);
+                $state = $pdo->prepare("SELECT COUNT(*) AS username FROM users WHERE username  = :username AND id <> :id");
+                $state->bindParam(':username', $username);
+                $state->bindParam(':id', $id , PDO::PARAM_INT);
                 $state->execute();
                 $result = $state->fetch();
             } catch (Exception $e) {
                 $error[] = " Erreur de verifiaction de la BDD{$e->getMessage()}";
             }
 
-            if($result['usernb'] !== 0){
-                $error[] = "l'email est déjà utiliser";
+            if($result['username'] !== 0){
+                $error[] = "l'utulisateur  est déjà utiliser";
             }
 
             if(empty($error)) {
@@ -67,8 +68,8 @@ require "jour3_functions.php";
         !empty($password) &&
         !empty($cpass)
     ){
-        $password = cleanCodeString($password);
-            $cpass = cleanCodeString($cpass);
+        $password = cleanString($password);
+            $cpass = cleanString($cpass);
 
             if ($password !== $cpass) {
                 $error[] = "Les mots de passe ne correspondent pas";
@@ -137,7 +138,7 @@ require "jour3_functions.php";
 
             if(empty($error)) {
                 try {
-                    $state = $pdo->prepare("SELECT COUNT(*) AS usernb FROM `users` WHERE `email` = :mail");
+                    $state = $pdo->prepare("SELECT COUNT(*) AS username FROM `users` WHERE `email` = :mail");
                     $state->bindParam(':mail', $email);
                     $state->execute();
                     $result = $state->fetch();
@@ -145,7 +146,7 @@ require "jour3_functions.php";
                     $error[] = " Erreur de verifiaction de la BDD{$e->getMessage()}";
                 }
 
-                if($result['usernb'] !== 0){
+                if($result['username'] !== 0){
                     $error[] = "l'email est déjà utiliser";
                 }
 
