@@ -17,7 +17,13 @@ if (isset($_POST["login_button"])) {
 
     $isMatchPassword = is_array($user) && password_verify($pass, $user["password"]);
 
+    if ($isMatchPassword) {
+      $_SESSION["auth"] = true;
+    } else {
+      $error[] = "l'identification a echoué";
+    }
   }
+
 }
 require "View/login.php";
 
