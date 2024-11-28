@@ -3,7 +3,7 @@
 
 function getUser(PDO $pdo, string  $username): array|bool
 {
-  $query = 'SELECT `username`, `password` FROM users WHERE username = :username';
+  $query = 'SELECT `username`, `password`, enabled FROM users WHERE username = :username';
   /**
    * @var PDO $pdo
    */

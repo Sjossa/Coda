@@ -1,7 +1,7 @@
 <?php
 
-session_start();
-$_SESSION['macledesesin'] = 'oup';
-var_dump($_SESSION);
+// session_destroy()
+// $_SESSION['macledesesin'] = 'oups';
+// var_dump($_SESSION);
 
 ?>

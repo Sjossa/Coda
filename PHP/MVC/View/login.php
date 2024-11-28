@@ -19,6 +19,8 @@
     </div>
 
     <button type="submit" class="btn btn-primary" name="login_button">Submit</button>
+    <button type="submit" class="btn btn-primary" name="destroy">deconnexion</button>
+
   </form>
 </body>
 
