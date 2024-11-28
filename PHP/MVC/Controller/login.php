@@ -17,30 +17,19 @@ if (isset($_POST["login_button"])) {
 
     $isMatchPassword = is_array($user) && password_verify($pass, $user["password"]);
 
-    if ($isMatchPassword && $user['enabled']){
+    if ($isMatchPassword && $user['enabled']) {
       $_SESSION["auth"] = true;
       header("location: index.php");
-    }elseif (!$user['enabled']) {
+    } elseif (!$user['enabled']) {
       $errors[] = "votre compte est desactivé";
-    }else {
+    } else {
       $error[] = "l'identification a echoué";
     }
   }
 
 }
 
-// if (isset($_POST["destroy"])) {
 
-//   $_SESSION = [];
-
-//   session_destroy();
-//   if (session_status() === PHP_SESSION_NONE) {
-//     header("View/users.php");
-//     exit();
-//   } else {
-//     echo "Une session est toujours active.";
-//   }
-// }
 
 require "View/login.php";
 
