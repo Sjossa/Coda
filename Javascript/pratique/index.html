@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let name = "coda";
+      // console.log(name);
+
+      // name = "azerty";
+      // console.log(name);
+      // const DEFAUL_PAGE_NUMBERS = 50;
+      // console.log(DEFAUL_PAGE_NUMBERS);
+
+      // const age = 50;
+
+      // if (age < 18) {
+      //   console.log("mineur");
+      // } else if (age >= 18 && age < 65) {
+      //   console.log("actif");
+      // } else {
+      //   console.log("retraité");
+      // }
+
+      // const COLOR = "red"
+      // let colorCode = null
+
+      //   switch (COLOR) {
+      //     case "blue":
+      //       colorCode = "#3333FF";
+      //       break
+      //     case "red":
+      //       colorCode =  "#FF3333";
+      //       break
+      //     default:
+      //       "#000000";
+      //       break
+      //   }
+      //   console.log(colorCode);
+
+      // const COLORS = ['red','green','yellow','black','white']
+
+      // console.log(COLORS)
+
+      const REGIONS = [
+        {
+          nom: "Ile-de-france",
+          departement: [
+            { nom: "Val de marne", code: "94" },
+            { nom: "Essonne", code: "91" },
+            { nom: "Seine Saint Denis", code: "93" },
+          ],
+        },
+        {
+          nom: "Centre val de loire",
+          departements: [
+            { nom: "Loiret", code: "45" },
+            { nom: "Loire et cher", code: "41" },
+          ],
+        },
+      ];
+
+      console.log(REGIONS);
+
+        const REGIONS_ONLY = REGIONS.map(regions => regions.nom)
+          console.log(REGIONS_ONLY)
+
+          const REGIONS_START_BY_C = REGIONS.filter(regions => regions.nom.startsWith('C'))
+          console.log(REGIONS_START_BY_C)
+
+    </script>
+  </body>
+</html>
