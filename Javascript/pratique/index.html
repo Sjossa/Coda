@@ -6,44 +6,52 @@
     <title>Document</title>
   </head>
   <body>
+    <form action="">
+      <input type="text" class="a" />
+      <p>aaaaa</p>
+
+      aaaaaa
+    </form>
     <script>
-      // let name = "coda";
-      // console.log(name);
 
-      // name = "azerty";
-      // console.log(name);
-      // const DEFAUL_PAGE_NUMBERS = 50;
-      // console.log(DEFAUL_PAGE_NUMBERS);
+      let name = "coda";
+      console.log(name);
 
-      // const age = 50;
+      name = "azerty";
+      console.log(name);
 
-      // if (age < 18) {
-      //   console.log("mineur");
-      // } else if (age >= 18 && age < 65) {
-      //   console.log("actif");
-      // } else {
-      //   console.log("retraité");
-      // }
+      const DEFAUL_PAGE_NUMBERS = 50;
+      console.log(DEFAUL_PAGE_NUMBERS);
 
-      // const COLOR = "red"
-      // let colorCode = null
+      const age = 50;
 
-      //   switch (COLOR) {
-      //     case "blue":
-      //       colorCode = "#3333FF";
-      //       break
-      //     case "red":
-      //       colorCode =  "#FF3333";
-      //       break
-      //     default:
-      //       "#000000";
-      //       break
-      //   }
-      //   console.log(colorCode);
+      if (age < 18) {
+        console.log("mineur");
+      } else if (age >= 18 && age < 65) {
+        console.log("actif");
+      } else {
+        console.log("retraité");
+      }
 
-      // const COLORS = ['red','green','yellow','black','white']
+      const COLOR = "red";
+      let colorCode = null;
 
-      // console.log(COLORS)
+      switch (COLOR) {
+        case "blue":
+          colorCode = "#3333FF";
+          break;
+        case "red":
+          colorCode = "#FF3333";
+          break;
+        default:
+          colorCode = "#000000"; // Correction ici
+          break;
+      }
+      console.log(colorCode);
+
+      const COLORS = ["red", "green", "yellow", "black", "white"];
+
+      console.log(COLORS);
 
       const REGIONS = [
         {
@@ -65,12 +73,34 @@
 
       console.log(REGIONS);
 
-        const REGIONS_ONLY = REGIONS.map(regions => regions.nom)
-          console.log(REGIONS_ONLY)
+      const REGIONS_ONLY = REGIONS.map((regions) => regions.nom);
+      console.log(REGIONS_ONLY);
 
-          const REGIONS_START_BY_C = REGIONS.filter(regions => regions.nom.startsWith('C'))
-          console.log(REGIONS_START_BY_C)
+      const REGIONS_START_BY_C = REGIONS.filter((regions) =>
+        regions.nom.startsWith("C")
+      );
+      console.log(REGIONS_START_BY_C);
 
+      const REGIONS_ILE_DE_FRANCE = REGIONS.find(
+        (regions) => regions.nom === "Ile-de-france"
+      );
+      console.log(REGIONS_ILE_DE_FRANCE);
+
+      for (let i = 0; i < COLORS.length; i++) {
+        console.log(COLORS[i]);
+      }
+
+      const somme = function (a, b) {
+        return a + b;
+      };
+
+      console.log(somme(10, 15));
+
+      const diff = (a, b) => a - b;
+
+      console.log(diff(10, 5));
+
+      console.log(document);
     </script>
   </body>
 </html>

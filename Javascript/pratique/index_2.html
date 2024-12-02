@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <button type="button" id="click-me-btn">Click me</button>
+    </div>
+    <div>
+      <button type="button" id="remove-me-btn">Remove me</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Bouton pour ajouter l'élément
+        const clickMeBtn = document.querySelector("#click-me-btn");
+        clickMeBtn.addEventListener("click", () => {
+          console.log("click");
+          const rootElement = document.querySelector("#root");
+          const divElement = document.createElement("div");
+          divElement.classList.add("mydiv"); // Ajouter une classe
+          divElement.textContent = "Hello world";
+          rootElement.appendChild(divElement);
+        });
+
+        // Bouton pour supprimer les éléments
+        const removeBtn = document.querySelector("#remove-me-btn");
+        removeBtn.addEventListener("click", () => {
+          const divElements = document.querySelectorAll(".mydiv");
+
+          for (let i = 0; i < divElements.length; i++) {
+            divElements[i].remove();
+          }
+
+         
+        });
+      });
+    </script>
+  </body>
+</html>
