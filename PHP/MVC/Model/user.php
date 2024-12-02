@@ -3,7 +3,7 @@
 function get(PDO $pdo, int $id)
 {
   try {
-    $state = $pdo->prepare("SELECT username, email, enabled FROM users WHERE id = :id");
+    $state = $pdo->prepare("SELECT * FROM users WHERE id = :id");
     $state->bindParam(':id', $id, PDO::PARAM_INT);
     $state->execute();
     return $state->fetch();
@@ -52,3 +52,32 @@ function updatePassword(PDO $pdo, int $id, string $password)
     return "Erreur de requete : {$e->getMessage()}";
   }
 }
+
+function emailExists(PDO $pdo, string $email)
+{
+    try {
+        $state = $pdo->prepare("SELECT COUNT(*) AS email_count FROM `users` WHERE `email` = :mail");
+        $state->bindParam(':mail', $email, PDO::PARAM_STR);
+        $state->execute();
+        return $state->fetch()['email_count'] > 0;
+    } catch (Exception $e) {
+        return "Erreur de vérification de l'email : {$e->getMessage()}";
+    }
+}
+
+
+function create(PDO $pdo, string $username, string $password, string $email, bool $enabled){
+    try {
+        $state = $pdo->prepare(
+            "INSERT INTO `users`(`username`, `password`, `email`, `enabled`)
+             VALUES (:username, :password, :mail, :enable)"
+        );
+        $state->bindValue(':username', $username, PDO::PARAM_STR);
+        $state->bindValue(':password', $password, PDO::PARAM_STR);
+        $state->bindValue(':mail', $email, PDO::PARAM_STR);
+        $state->bindValue(':enable', $enabled, PDO::PARAM_BOOL);
+        $state->execute();
+    } catch (Exception $e) {
+        return "Erreur lors de la création de l'utilisateur : {$e->getMessage()}";
+    }
+  }

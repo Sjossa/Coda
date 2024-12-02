@@ -3,6 +3,7 @@ session_start();
 require "Includes/Database.php";
 require "Includes/function.php";
 $errors = [];
+// var_dump($_SESSION);
 if(isset($_GET['deconnect'])){
   session_destroy();
   header('location: index.php');

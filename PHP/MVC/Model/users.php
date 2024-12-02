@@ -1,11 +1,28 @@
 <?php
 
-function getAll(PDO $pdo): array
+function getAll(PDO $pdo, string|null $search = null, string|null $sortBy = null): array
 {
-  $res = $pdo->prepare('SELECT * FROM users');
-  $res->execute();
-  return $res->fetchAll();
+  $query = 'SELECT * FROM users';
+
+  if (null !== $search) {
+    $query .= ' WHERE id LIKE :search OR username LIKE :search OR email LIKE :search';
+  }
+  if (null !== $sortBy) {
+    $query .= " ORDER BY $sortBy";
+  }
+  try {
+    $res = $pdo->prepare($query);
+
+    if (null !== $search) {
+      $res->bindValue(':search', "%$search%");
+    }
+    $res->execute();
+    return $res->fetchAll();
+  } catch (Exception $e) {
+    return ['error' => $e->getMessage()];
+  }
 }
+
 
 function toggle_enabled(PDO $pdo, int $id): void
 {

@@ -5,6 +5,10 @@ require "Model/users.php";
  * @var PDO $pdo
  */
 
+// if (isset($_POST['search'])) {
+
+// }
+
 if (
   isset($_GET['action']) &&
   $_GET['action'] === 'toggle_enabled' &&
@@ -40,15 +44,13 @@ if (
       break;
   }
 }
+$search = isset($_POST['search']) ? cleanString($_POST['search']) : null;
+$sortBy = isset($_GET['sortby']) ? cleanString($_GET['sortby']) : null;
 
-
-
-
-
-$users = getAll($pdo);
-
-
-
+$users = getAll($pdo, $search, $sortBy);
+if(!array($users)){
+  $errors[] = $user;
+}
 
 
 require "View/users.php";

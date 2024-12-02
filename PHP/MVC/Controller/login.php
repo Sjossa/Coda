@@ -19,6 +19,8 @@ if (isset($_POST["login_button"])) {
 
     if ($isMatchPassword && $user['enabled']) {
       $_SESSION["auth"] = true;
+      $_SESSION['user_id'] = $user['id'];
+      $_SESSION['user_username'] = $user['username'];
       header("location: index.php");
     } elseif (!$user['enabled']) {
       $errors[] = "votre compte est desactivé";

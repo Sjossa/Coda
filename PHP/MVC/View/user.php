@@ -18,10 +18,17 @@
     <input type="password" name="confirmation" id="confirmation" class="form-control" <?php echo isset($_GET['id']) ? null : 'required'; ?>>
   </div>
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="enabled" name="enabled" <?php echo (isset($user['enabled']) && $user['enabled']) ? 'checked' : null; ?>>
+    <input type="checkbox"
+    class="form-check-input"
+    id="enabled" name="enabled"
+    named ="enabled"
+    >
+    <?php echo ($user['id'] === $_SESSION['user_id']) ? 'disabled' : null; ?>
+    <?php echo (isset($user['enabled']) && $user['enabled']) ? 'checked' : null; ?>>
     <label class="form-check-label" for="enabled">Actif</label>
   </div>
   <div class="mb-3 d-flex justify-content-end">
+
     <button type="submit" class="btn <?php echo isset($_GET['id']) ? 'btn-success' : 'btn-primary'; ?>"
       name="<?php echo isset($_GET['id']) ? 'edit_button' : 'valid_button'; ?>">
       <?php echo isset($_GET['id']) ? 'Enregistrer' : 'CrÃ©er'; ?>
