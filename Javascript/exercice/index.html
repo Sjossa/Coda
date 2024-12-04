@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,16 +30,11 @@
       document.addEventListener("DOMContentLoaded", () => {
         const clickMeBtn = document.querySelector("#click-me-btn");
 
-        const rootElement = document.querySelector("body");
-
-          const ulElement = document.createElement("ul")
-          ulElement.classList.add("list-group-item");
-
         clickMeBtn.addEventListener("click", () => {
           const rootElement = document.querySelector(".list-group");
 
           const divElement = document.createElement("li");
-          divElement.classList.add("list-group-item");
+          divElement.classList.add("list-group-item", "me-2", "ms-2");
 
           divElement.textContent = "todo " + (rootElement.children.length + 1);
 
@@ -54,7 +49,10 @@
           deleteButton.textContent = "Supprimer";
 
           deleteButton.addEventListener("click", () => {
-            divElement.remove();
+            const response = confirm("Êtes-vous sûr ?");
+            if (response) {
+              divElement.remove();
+            }
           });
           divElement.appendChild(deleteButton);
           rootElement.appendChild(divElement);

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <div class="row">
+          <div class="h1">Formulaire d'inscriptions</div>
+        </div>
+      </div>
+      <form id="account-form">
+        <div class="row">
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="lastname" required />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="firstname" class="form-label">Prenom</label>
+              <input type="text" class="form-control" id="firstname" required />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="username" class="form-label">Identifiant</label>
+              <input type="text" class="form-control" id="username" required />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+          </div>
+        </div>
+        <div class="row" id="password-row">
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="confirmation" class="form-label">Confirmation</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmation"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="valid-btn">
+          Valider
+        </button>
+      </form>
+    </div>
+
+    <!-- Toast Notification -->
+    <div
+      class="toast align-items-center position-fixed top-0 end-0 text-bg-success border-0 m-3"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      id="toast-message"
+    >
+      <div class="d-flex">
+        <div class="toast-body">Formulaire bien envoyé</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+
+    <!-- Modale -->
+    <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Inscription Réussie</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Confirmez l'envoi du formulaire ?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary bg-success"
+              id="valid"
+            >
+              Oui
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary bg-danger"
+              id="false"
+            >
+              Non
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary bg-danger"
+              id="retry"
+            >
+              Recommencer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Initialisation des éléments ---
+        const validbtnElement = document.querySelector("#valid-btn");
+        const form = document.querySelector("#account-form");
+        const toastMessageElement = document.querySelector("#toast-message");
+        const toastMessage = new bootstrap.Toast(toastMessageElement);
+        const modalElement = document.querySelector("#modal");
+        const modal = new bootstrap.Modal(modalElement);
+
+        const validElement = document.querySelector("#valid");
+        const falsedElement = document.querySelector("#false");
+        const retryElement = document.querySelector("#retry");
+
+        // --- Gestion du bouton "Valider" ---
+        validbtnElement.addEventListener("click", () => {
+          if (!form.checkValidity()) {
+            form.reportValidity();
+          } else if (
+            form.elements["password"].value !==
+            form.elements["confirmation"].value
+          ) {
+            const rootElement = document.querySelector("#password-row");
+
+            const existingAlert = rootElement.querySelector(".alert-danger");
+            if (existingAlert) {
+              existingAlert.remove();
+            }
+
+            const divalert = document.createElement("div");
+            divalert.classList.add("alert", "alert-danger");
+            divalert.setAttribute("role", "alert");
+            divalert.innerText = "Les mots de passe ne correspondent pas.";
+            rootElement.appendChild(divalert);
+          } else {
+            const rootElement = document.querySelector("#password-row");
+            const existingAlert = rootElement.querySelector(".alert-danger");
+
+            if (existingAlert) {
+              existingAlert.remove();
+            }
+            modal.show();
+          }
+        });
+
+        // --- Gestion du bouton "Oui" dans la modale ---
+        validElement.addEventListener("click", () => {
+          toastMessage.show();
+          modal.hide();
+          form.reset();
+        });
+
+        // --- Gestion du bouton "Recommencer" dans la modale ---
+        retryElement.addEventListener("click", () => {
+          const confirmRetry = confirm(
+            "Êtes-vous sûr de vouloir réinitialiser le formulaire ?"
+          );
+          if (confirmRetry) {
+            form.reset();
+            modal.hide();
+
+            toastMessageElement.classList.remove("text-bg-success");
+            toastMessageElement.classList.add("text-bg-warning");
+            toastMessageElement.querySelector(".toast-body").innerText =
+              "Le formulaire a été réinitialisé";
+            toastMessage.show();
+          } else {
+            toastMessageElement.classList.remove("text-bg-success");
+            toastMessageElement.classList.add("text-bg-danger");
+            toastMessageElement.querySelector(".toast-body").innerText =
+              "Action annulée";
+            toastMessage.show();
+            modal.show();
+          }
+        });
+
+        // --- Gestion du bouton "Non" dans la modale ---
+        falsedElement.addEventListener("click", () => {
+          toastMessageElement.classList.remove("text-bg-success");
+          toastMessageElement.classList.add("text-bg-danger");
+          toastMessageElement.querySelector(".toast-body").innerText =
+            "Action annulée";
+          toastMessage.show();
+          modal.hide();
+        });
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
