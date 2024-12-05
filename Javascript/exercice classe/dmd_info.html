@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="h1 text-center">Formulaire d'inscriptions</div>
+      </div>
+
+      <!-- barre de progression -->
+      <div class="row">
+        <div class="col">
+          <div
+            id="form-progress"
+            class="progress"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div class="progress-bar" style="width: 0%">0%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- accordion -->
+      <div class="row mt-5">
+        <div class="col">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  id="collapse-one-btn"
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Vos informations
+                </button>
+              </h2>
+              <div
+                id="collapse-one"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <!-- formulaire -->
+                  <form id="form-step-1">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="lastname" class="form-label">Nom*</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="lastname"
+                            name="lastname"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="firstname" class="form-label"
+                            >Prénom*</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="firstname"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <label for="adress" class="form-label"
+                            >Adresse*</label
+                          >
+                          <textarea
+                            class="form-control"
+                            id="adress"
+                            name="adress"
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="zip-code" class="form-label"
+                            >Coda postal*</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="zip-code"
+                            name="zip-code"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="city" class="form-label">Ville*</label>
+                          <input
+                            type="city"
+                            class="form-control"
+                            id="city"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="birthdate" class="form-label"
+                            >Date de naissance*</label
+                          >
+                          <input
+                            type="date"
+                            class="form-control"
+                            id="birthdate"
+                            name="birthdate"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="phone" class="form-label">Tél*</label>
+                          <input
+                            type="phone"
+                            class="form-control"
+                            id="phone"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button
+                          class="btn btn-success"
+                          type="button"
+                          id="btn-step-1"
+                        >
+                          Aller à l'étape 2 (Votre foyer) >
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  id="collapse-two-btn"
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                  disabled
+                >
+                  Votre foyer
+                </button>
+              </h2>
+              <div
+                id="collapse-two"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <form id="form-step-2">
+                    <div class="row">
+                      <div class="mb-3">
+                        <div class="col-6">
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="has-partner"
+                              id="has-parner-false"
+                              value="false"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="has-parner-true"
+                              >Je n'ai pas de conjoint</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="has-partner"
+                              id="has-parner-true"
+                              value="true"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="has-parner-false"
+                              >J'ai un conjoint</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="partner_lastname" class="form-label"
+                            >Nom Conjoint.e*</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="partner_lastname"
+                            name="partner_lastname"
+                            disabled
+                          />
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <label for="partner_firstname" class="form-label"
+                            >Prenom conjoint.e*</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="partner_firstname"
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-1-lastname" class="form-label"
+                            >Nom enfant 1</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-1-lastname"
+                            name="child-1-lastname"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-1-firstname" class="form-label"
+                            >Prénom enfant 1</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-1-firstname"
+                            name="child-1-firstname"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-1-age" class="form-label"
+                            >Age enfant 1</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-1-age"
+                            name="child-1-age"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-2-lastname" class="form-label"
+                            >Nom enfant 2</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-2-lastname"
+                            name="child-2-lastname"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-2-firstname" class="form-label"
+                            >Prénom enfant 2</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-2-firstname"
+                            name="child-2-firstname"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-2-age" class="form-label"
+                            >Age enfant 2</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-2-age"
+                            name="child-2-age"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-3-lastname" class="form-label"
+                            >Nom enfant 3</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-3-lastname"
+                            name="child-3-lastname"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-3-firstname" class="form-label"
+                            >Prénom enfant 3</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-3-firstname"
+                            name="child-3-firstname"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="mb-3">
+                          <label for="child-3-age" class="form-label"
+                            >Age enfant 3</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="child-3-age"
+                            name="child-3-age"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button
+                          class="btn btn-success"
+                          id="btn-step-2"
+                          type="button"
+                        >
+                          Aller à l'étape 3 (Vos besoins) >
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  id="collapse-three-btn"
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                  disabled
+                >
+                  Vos besoins
+                </button>
+              </h2>
+              <div
+                id="collapse-three"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body"></div>
+                <form id="form-step-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <p>Vous avez des besoins en :</p>
+                      <div class="mb-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="true"
+                            id="need-optical"
+                          />
+                          <label class="form-check-label" for="need-optical">
+                            Optique
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="true"
+                            id="need-dental"
+                          />
+                          <label class="form-check-label" for="need-dental">
+                            Dentaire
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="true"
+                            id="need-hospitalization"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="need-hospitalization"
+                          >
+                            Hospitalisation
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!--d-none pour cacher une classe-->
+                    <div class="col-12 d-none" id="form-3-dental-solutions">
+                      <p>Vos besoins en dentaire :</p>
+                      <div class="mb-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="true"
+                            id="dental-care"
+                          />
+                          <label class="form-check-label" for="dental-care">
+                            Soins courants
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="true"
+                            id="dental-prosthesis"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="dental-prosthesis"
+                          >
+                            Protheses
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="true"
+                            id="dental-orthodontics"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="dental-orthodontics"
+                          >
+                            Orthodontie
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label for="obersvations" class="form-label"
+                          >Observations</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="obersvations"
+                          name="obersvations"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex justify-content-end">
+                      <button
+                        class="btn btn-success"
+                        type="button"
+                        id="btn-step-3"
+                      >
+                        Terminer et envoyer >
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale -->
+    <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Inscription Réussie</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Confirmez l'envoi du formulaire ?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary bg-success"
+              id="valid"
+            >
+              Oui
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary bg-danger"
+              id="false"
+            >
+              Non
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div
+      class="toast align-items-center position-fixed top-0 end-0 text-bg-success border-0 m-3"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      id="toast-message"
+    >
+      <div class="d-flex">
+        <div class="toast-body">Formulaire bien envoyé</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dmd_info.js"></script>
+
+  </body>
+</html>
