@@ -29,6 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const falsedElement = document.querySelector("#false");
   const retryElement = document.querySelector("#retry");
 
+
+
+
+
+
+
+
+  const showNextStep = (currentCollapse, nextCollapse, currentBtn, nextBtn) => {
+    currentCollapse.classList.remove("show");
+    currentBtn.classList.add("collapsed");
+    currentBtn.setAttribute("aria-expanded", false);
+    currentBtn.disabled = true;
+
+    nextCollapse.classList.add("show");
+    nextBtn.classList.remove("collapsed");
+    nextBtn.setAttribute("aria-expanded", true);
+    nextBtn.disabled = false;
+  };
+
   needDentalCheckboxElement.addEventListener("change", (e) => {
     if (e.target.checked) {
       form3DentalSolutionsElement.classList.remove("d-none");
@@ -67,15 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-    collapseOneElement.classList.remove("show");
-    collapseOneBtnElement.classList.add("collapsed");
-    collapseOneBtnElement.setAttribute("aria-expanded", false);
-    collapseOneBtnElement.disabled = true;
+    showNextStep(collapseOneElement, collapseTwoElement, collapseOneBtnElement, collapseTwoBtnElement);
 
-    collapseTwoElement.classList.add("show");
-    collapseTwoBtnElement.classList.remove("collapsed");
-    collapseTwoBtnElement.setAttribute("aria-expanded", true);
-    collapseTwoBtnElement.disabled = false;
+
 
     updateProgressBar(33);
   });
@@ -86,15 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-    collapseTwoElement.classList.remove("show");
-    collapseTwoBtnElement.classList.add("collapsed");
-    collapseTwoBtnElement.setAttribute("aria-expanded", false);
-    collapseTwoBtnElement.disabled = true;
+    showNextStep(collapseTwoElement, collapseThreeElement, collapseTwoBtnElement, collapseThreeBtnElement);
 
-    collapseThreeElement.classList.add("show");
-    collapseThreeBtnElement.classList.remove("collapsed");
-    collapseThreeBtnElement.setAttribute("aria-expanded", true);
-    collapseThreeBtnElement.disabled = false;
+
 
     updateProgressBar(66);
   });
@@ -185,4 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateProgressBar(0);
   });
+
 });
+
+
