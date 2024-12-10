@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" id="add-btn">Ajouter un prénom</button>
+    <button type="button" id="delete">Supprimer le prénom</button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Bouton pour ajouter un prénom dans le localStorage
+        document.querySelector('#add-btn').addEventListener("click", () => {
+          const firstName = prompt("Quel est votre prénom ?");
+          if (firstName) {
+            localStorage.setItem("firstName", firstName);
+            alert(`Prénom enregistré : ${firstName}`);
+          }
+        });
+
+        // Afficher un message de bienvenue si un prénom existe dans le localStorage
+        if (localStorage.getItem('firstName')) {
+          alert(`Bonjour ${localStorage.getItem('firstName')}`);
+        }
+
+        // Bouton pour supprimer le prénom du localStorage
+        document.querySelector('#delete').addEventListener("click", () => {
+          localStorage.removeItem("firstName");
+
+        });
+      });
+    </script>
+  </body>
+</html>
