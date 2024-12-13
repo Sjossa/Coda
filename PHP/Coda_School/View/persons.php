@@ -3,14 +3,20 @@
  * @var array   $persons
  */
 ?>
-    <h1 class="text-center">Liste des personnes</h1>
-    <div class="text-end me-5">
-        <a href="index.php?component=user&action=create">
-            <i class="fa-solid fa-user-plus fa-2xl" style="color: black"></i>
-        </a>
-    </div>
-    <table class="table">
-        <thead>
+<h1 class="text-center">
+    Liste des personnes
+</h1>
+<div class="d-flex justify-content-center">
+<div class="spinner-border text-info d-none" role="status" id="spinner" >
+</div>
+</div>
+<div class="text-end me-5">
+    <a href="index.php?component=user&action=create">
+        <i class="fa-solid fa-user-plus fa-2xl" style="color: black"></i>
+    </a>
+</div>
+<table class="table" id="list-persons">
+    <thead>
         <tr>
             <th scope="col"><a href="index.php?component=persons&sortby=id">#</a></th>
             <th scope="col"><a href="index.php?component=persons&sortby=last_name">Last Name</a></th>
@@ -19,21 +25,28 @@
             <th scope="col"><a href="index.php?component=persons&sortby=type">Type</a></th>
             <th scope="col">Actions</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
 
-        <?php foreach($persons as $person) :?>
-            <tr class="table align-middle">
-                <td><?php echo$person['id']?></td>
-                <td><?php echo$person['last_name']?></td>
-                <td><?php echo$person['first_name']?></td>
-                <td><?php echo$person['address']?></td>
-                <td><?php echo $person['type'] === 1 ? "Elève" : "Enseignant"; ?></td>
-                <td><a href="index.php?component=person&action=edit&id=<?php echo $person['id']?>">
-                        <i class="fa-solid fa-user-pen"></i>
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+
+
+    </tbody>
+</table>
+
+<script src="./Assets/JavaScript/Services/person.js" type="module">
+
+    </script>
+
+    <script type="module">
+        import {getPersons} from './Assets/JavaScript/Services/person.js'
+    document.addEventListener('DOMContentLoaded', async () => {
+alert('lol')
+
+        const spinner = document.querySelector('#spinner')
+        spinner.classList.remove('d-none')
+    
+
+        const data = await getPersons()
+
+    })
+</script>

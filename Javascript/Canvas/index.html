@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid Data Chart</title>
+  </head>
+  <body style="background-color: black;">
+    <div style="width: 40%; margin: auto;">
+      <canvas id="chart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        const url = "https://disease.sh/v3/covid-19/countries?sort=deaths";
+
+
+        async function fetchCovidData() {
+            const response = await fetch(url);
+
+            const data = await response.json();
+            const topCountries = [];
+            const topDeaths = [];
+            for (let i = 0; i < data.length && i < 10; i++) {
+              topCountries.push(data[i].country);
+              topDeaths.push(data[i].deaths);
+            }
+
+            return { topCountries, topDeaths };
+
+        }
+
+        const { topCountries, topDeaths } = await fetchCovidData();
+        const chart = document.querySelector("#chart");
+        new Chart(chart, {
+          type: 'doughnut',
+          data: {
+            labels: topCountries,
+            datasets: [
+              {
+                label: 'COVID-19 Deaths',
+                data: topDeaths,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)',
+                  'rgb(75, 192, 192)',
+                  'rgb(153, 102, 255)',
+                  'rgb(255, 159, 64)',
+                  'rgb(199, 199, 199)',
+                  'rgb(83, 102, 255)',
+                  'rgb(205, 92, 92)',
+                  'rgb(255, 140, 0)'
+                ],
+                hoverOffset: 4
+              }
+            ]
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

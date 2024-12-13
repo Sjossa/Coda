@@ -18,7 +18,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const loginBtn = document.querySelector('#login-btn');
         loginBtn.addEventListener('click', async (e) => {
-            e.preventDefault(); // Prevent the default form submission behavior
+            e.preventDefault();
 
             const formLogin = document.querySelector('#login-form');
             if (!formLogin.checkValidity()) {
