@@ -1,46 +1,47 @@
 <?php
-    function getAll(PDO $pdo, string | null $search = null, string | null $sortby = null)
-    {
-        $query = 'SELECT * FROM users';
-        if (null !== $search) {
-            $query .= ' WHERE id LIKE :search OR username LIKE :search OR email LIKE :search';
+function getAll(PDO $pdo, $search = null, string | null $sortby = null): array | string
+{
+    $query = "SELECT * FROM users LIMIT 10";
+    if($search !== null) {
+        $query .= " WHERE username LIKE :search OR id LIKE :search OR email LIKE :search";
+    }
+    if($sortby !== null) {
+        $query .= " ORDER BY $sortby";
+    }
+    try {
+        $state = $pdo->prepare($query);
+        if($search !== null) {
+            $state->bindValue(":search", "%$search%");
         }
-
-        if (null !== $sortby) {
-            $query .= " ORDER BY $sortby";
-        }
-        $statement = $pdo->prepare($query);
-
-        try {
-            if (null !== $search) {
-                $statement->bindValue(':search', "%$search%");
-            }
-
-
-            $statement->execute();
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
-        }
-        catch (PDOException $e) {
-            return $e->getMessage();
-        }
-
+        $state->execute();
+        return $state->fetchAll();
+    } catch (PDOException $e) {
+        return $e->getMessage();
     }
 
-    function toggleEnabled (PDO $pdo, int $id): void
-    {
-        $statement = $pdo->prepare("UPDATE users SET enabled = NOT enabled WHERE id = :id");
-        $statement->bindParam(':id', $id, PDO::PARAM_INT);
-        $statement->execute();
+}
+
+function toogle_enabled(PDO $pdo, int $user_id)
+{
+    var_dump($user_id);
+    try {
+        $state = $pdo->prepare("UPDATE `users` SET `enabled` = NOT `enabled` WHERE `id` = :user_id");
+        $state->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $state->execute();
+    } catch (Exception $e) {
+        return $e->getMessage();
     }
 
-    function delete (PDO $pdo, int $id)
-    {
-        try {
-            $statement = $pdo->prepare("DELETE FROM users WHERE id = :id");
-            $statement->bindParam(':id', $id, PDO::PARAM_INT);
-            $statement->execute();
-        }
-        catch (PDOException $e) {
-            return $e ->getMessage();
-        }
+}
+
+function delete_user(PDO $pdo, int $user_id)
+{
+    try {
+        $state = $pdo->prepare("DELETE FROM `users` WHERE `id` = :user_id");
+        $state->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $state->execute();
+    } catch (PDOException $e) {
+        return $e->getMessage();
     }
+
+}

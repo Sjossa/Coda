@@ -1,12 +1,11 @@
 <?php
-
-
-    function getUser(PDO $pdo, string $username): array | bool
-    {
-        $query = 'SELECT * FROM users WHERE username = :username';
-        $res = $pdo->prepare($query);
-        $res->bindValue(':username', $username);
-        $res->execute();
-        return $res->fetch(PDO::FETCH_ASSOC);
-
-    }
+/**
+ * @var PDO $pdo
+ */
+function getUser(string $username, PDO $pdo):array | bool
+{
+    $state = $pdo->prepare("SELECT * FROM users WHERE `email` = :username");
+    $state->bindParam(':username', $username);
+    $state->execute();
+    return $state->fetch();
+}

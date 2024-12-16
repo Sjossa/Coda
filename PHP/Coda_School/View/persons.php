@@ -1,52 +1,50 @@
 <?php
 /**
- * @var array   $persons
+ * @var array $persons
  */
 ?>
-<h1 class="text-center">
-    Liste des personnes
-</h1>
-<div class="d-flex justify-content-center">
-<div class="spinner-border text-info d-none" role="status" id="spinner" >
+
+<div class="mt-2 mb-2 d-flex justify-content-center align-items-center">
+    <h1 class="text-center">Liste des personnes</h1>
 </div>
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <div class="spinner-border text-primary d-none" role="status" id="spinner">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 </div>
-<div class="text-end me-5">
-    <a href="index.php?component=user&action=create">
-        <i class="fa-solid fa-user-plus fa-2xl" style="color: black"></i>
-    </a>
-</div>
-<table class="table" id="list-persons">
-    <thead>
+<div class="row">
+    <table class="table" id="liste-person">
+        <thead>
         <tr>
-            <th scope="col"><a href="index.php?component=persons&sortby=id">#</a></th>
-            <th scope="col"><a href="index.php?component=persons&sortby=last_name">Last Name</a></th>
-            <th scope="col"><a href="index.php?component=persons&sortby=first_name">First Name</a></th>
-            <th scope="col"><a href="index.php?component=persons&sortby=address">Address</a></th>
-            <th scope="col"><a href="index.php?component=persons&sortby=type">Type</a></th>
-            <th scope="col">Actions</th>
+            <th scope="col">#</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Address</th>
+            <th scope="col">Zip_code</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Type</th>
+            <th scope="col">Action</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
 
-
-
-    </tbody>
-</table>
-
-<script src="./Assets/JavaScript/Services/person.js" type="module">
-
-    </script>
-
-    <script type="module">
-        import {getPersons} from './Assets/JavaScript/Services/person.js'
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" id="pagination">
+        </ul>
+    </nav>
+</div>
+<script src="./asset/js/components/persons.js" type="module"></script>
+<script type="module">
+    import {refreshPagePersons} from "./asset/js/components/persons.js"
     document.addEventListener('DOMContentLoaded', async () => {
-alert('lol')
-
-        const spinner = document.querySelector('#spinner')
-        spinner.classList.remove('d-none')
-    
-
-        const data = await getPersons()
-
+        let curentPage = 1
+        await refreshPagePersons(curentPage)
     })
 </script>
