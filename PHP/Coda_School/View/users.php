@@ -58,6 +58,7 @@
 <script src="./asset/js/services/users.js" type="module"></script>
 <script type="module">
     import {toogleUser} from './asset/js/services/users.js'
+    //valid et croix
     document.addEventListener('DOMContentLoaded', async () => {
         const iconLinkToogle = document.querySelectorAll('.icon-link')
         for (let i = 0; i < iconLinkToogle.length; i++) {
