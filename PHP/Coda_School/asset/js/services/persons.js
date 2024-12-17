@@ -1,7 +1,7 @@
 export const getPersons = async (page = 1) => {
     const res = await fetch(`index.php?component=persons&page=${page}`, {
         headers: {
-            "Content-Type": "application/json"
+            'X-Requested-Width': 'XMLHttpRequest'
         }
     })
     return await res.json()

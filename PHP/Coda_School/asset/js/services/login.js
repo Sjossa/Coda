@@ -4,7 +4,10 @@ export const login = async (username, password) => {
         body: new URLSearchParams({
             username: username,
             password: password
-        })
+        }),
+        headers: {
+            'X-Requested-Width': 'XMLHttpRequest'
+        }
     })
     return await res.json()
 }

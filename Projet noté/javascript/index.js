@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.querySelector("#previous-btn");
   const barElement = document.querySelector(".progress-bar");
 
+  const parentForm = document.querySelector('.tab-content');
+  const enfantForm = document.querySelectorAll('formulaire')
+
+  let formulaire = 0
+
   let progressValue = 0;
 
   prevBtn.disabled = true;
@@ -17,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const updateButtonStates = (value) => {
+  const updateButton = (value) => {
     nextBtn.disabled = value >= 100;
     prevBtn.disabled = value <= 0;
   };
@@ -26,17 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   nextBtn.addEventListener("click", () => {
     progressValue = Math.min(progressValue + 10, 100);
-    updateButtonStates(progressValue);
+    updateButton(progressValue);
     updateBar(progressValue);
+    
+
   });
 
   prevBtn.addEventListener("click", () => {
     progressValue = Math.max(progressValue - 10, 0);
-    updateButtonStates(progressValue);
+    updateButton(progressValue);
     updateBar(progressValue);
   });
 });
 
-nextBtn.addEventListener("click", () => {
-  console.log("lol");
-});
+

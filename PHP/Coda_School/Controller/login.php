@@ -4,8 +4,8 @@
  */
 require "Model/login.php";
 
-if(!empty($_SERVER['CONTENT_TYPE']) &&
-    ($_SERVER['CONTENT_TYPE'] === 'application/json' || str_starts_with($_SERVER['CONTENT_TYPE'], 'application/x-www-form-urlencoded'))
+if(!empty($_SERVER['HTTP_X_REQUESTED_WIDTH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WIDTH'] === 'XMLHttpRequest'
 ) {
     $username = !empty($_POST['username']) ? $_POST['username'] : null;
     $password = !empty($_POST['password']) ? $_POST['password'] : null;

@@ -29,9 +29,8 @@ $users = getAll($pdo, $search, $sortby);
 if(!is_array($users)) {
     $errors[] = $users;
 }
-if(!empty($_SERVER['CONTENT_TYPE']) &&
-    ($_SERVER['CONTENT_TYPE'] === 'application/json' ||
-        str_starts_with($_SERVER['CONTENT_TYPE'], 'application/x-www-form-urlencoded'))
+if(!empty($_SERVER['HTTP_X_REQUESTED_WIDTH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WIDTH'] === 'XMLHttpRequest'
 ) {
     if(
         isset($_GET['action']) &&
@@ -41,12 +40,11 @@ if(!empty($_SERVER['CONTENT_TYPE']) &&
     ) {
         $id = cleanCodeString($_GET['id']);
         $response = toogle_enabled($pdo, intval($id));
-        if($response === null) {
-            header("Content-type: application/json");
+        header("Content-Type: application/json");
+        if(is_bool($response)) {
             echo json_encode(['success' => true]);
             exit();
         } else {
-            header("Content-type: application/json");
             echo json_encode(['error' => $response]);
             exit();
         }

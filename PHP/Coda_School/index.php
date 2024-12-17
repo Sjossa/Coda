@@ -8,8 +8,8 @@
         header("Location: index.php");
         exit();
     }
-    if(!empty($_SERVER['CONTENT_TYPE']) &&
-        ($_SERVER['CONTENT_TYPE'] === 'application/json' || str_starts_with($_SERVER['CONTENT_TYPE'], 'application/x-www-form-urlencoded'))
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WIDTH']) &&
+        $_SERVER['HTTP_X_REQUESTED_WIDTH'] === 'XMLHttpRequest'
     )
     {
         if(isset($_SESSION['auth'])) {
@@ -31,8 +31,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="Includes/fontawesome-free-6.7.1-web/css/all.min.css"/>
+    <link href="Includes/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <title>CODA_SCHOOL</title>
 </head>
 <body data-bs-theme="dark">
@@ -58,10 +58,11 @@
 
             ?>
         </div>
+        <?php require "_partials/_toast.html"?>
     </main>
     <footer>
 
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="Includes/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
 </body>
 </html>

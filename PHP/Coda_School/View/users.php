@@ -36,6 +36,9 @@
                            title="Vous ne pouvez pas desactiver votre compte">
                         </i>
                     <?php endif; ?>
+                    <div class="spinner-border spinner-border-sm d-none spinner-enabled text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </td>
                 <td>
                     <?php if($user['id'] !== $_SESSION['userId']): ?>
@@ -55,25 +58,11 @@
         </tbody>
     </table>
 </div>
-<script src="./asset/js/services/users.js" type="module"></script>
+<script src="./asset/js/components/user.js" type="module"></script>
 <script type="module">
-    import {toogleUser} from './asset/js/services/users.js'
-    //valid et croix
+    import {UpdateUserEnabled} from "./asset/js/components/user.js";
+
     document.addEventListener('DOMContentLoaded', async () => {
-        const iconLinkToogle = document.querySelectorAll('.icon-link')
-        for (let i = 0; i < iconLinkToogle.length; i++) {
-            iconLinkToogle[i].addEventListener('click', async (e) => {
-                if(iconLinkToogle[i].classList.contains('fa-check')) {
-                    iconLinkToogle[i].classList.remove('fa-check', 'text-success')
-                    iconLinkToogle[i].classList.add('fa-xmark', 'text-danger')
-                    const data = await toogleUser(parseInt(e.target.getAttribute('data-id')))
-                    return false
-                } else {
-                    iconLinkToogle[i].classList.add('fa-check', 'text-success')
-                    iconLinkToogle[i].classList.remove('fa-xmark', 'text-danger')
-                    const data = await toogleUser(parseInt(e.target.getAttribute('data-id')))
-                }
-            })
-        }
+        await UpdateUserEnabled()
     })
 </script>

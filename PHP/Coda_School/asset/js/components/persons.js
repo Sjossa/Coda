@@ -11,7 +11,7 @@ const getRowPerson = (person) => {
     <td>${person.city}</td>
     <td>${person.phone}</td>
     <td>${person.type === 1 ? 'Eleve' : 'Prof'}</td>
-    <td></td>
+    <td><a href="index.php?component=person&action=edit&id=${person.id}"><i class="fa-solid fa-pen-to-square text-primary ms-2"></i></a></td>
     `
     return line
 }

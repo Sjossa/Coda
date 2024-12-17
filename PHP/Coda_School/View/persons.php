@@ -4,13 +4,10 @@
  */
 ?>
 
-<div class="mt-2 mb-2 d-flex justify-content-center align-items-center gap-5 ">
+<div class="mt-2 mb-2 d-flex justify-content-center align-items-center">
     <h1 class="text-center">Liste des personnes</h1>
-    <button class="btn btn-primary ml-3">
-        <a href="index.php?component=person" class="text-white text-decoration-none">Créer</a>
-    </button>
+    <a href="index.php?component=person&action=new" class="ms-4 btn btn-primary">Nouvelle Personnes <i class="fa-solid fa-plus"></i></a>
 </div>
-
 <div class="row">
     <div class="col d-flex justify-content-center">
         <div class="spinner-border text-primary d-none" role="status" id="spinner">
